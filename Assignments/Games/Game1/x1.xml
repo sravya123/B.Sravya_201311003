@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<make_sentences>
+<backgroundimage> </backgroundimage>
+<languages>
+<language>
+<title> English </title>
+<Easy>
+<sentences>
+<sentence><text>I don't drink milk.</text></sentence>
+<sentence><text>I eat breakfast at 8:00a.m.</text></sentence>
+<sentence><text>My mother is a good cook.</text></sentence>
+<sentence><text>What are you doing?</text></sentence>
+<sentence><text>He acquired the firm in 1978.</text></sentence>
+</sentences>
+</Easy>
+<Medium>
+<sentences>
+<sentence><text>Are you a letter carrier?</text></sentence>
+<sentence><text>Where does she work?</text></sentence>
+<sentence><text>How often do you play tennis?</text></sentence>
+<sentence><text>When was the last time you took a picture?</text></sentence>
+<sentence><text>What is your busiest day of the week?</text></sentence>
+</sentences>
+</Medium>
+<Hard>
+<sentences>
+<sentence><text>It seems to me that most restaurants are too expensive.</text></sentence>
+<sentence><text>How long have you been playing the trumpet?</text></sentence>
+</sentences>
+</Hard>
+</language>
+</languages>
+</make_sentences>
+
+
+

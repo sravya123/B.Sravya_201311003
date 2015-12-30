@@ -1,0 +1,3 @@
+1. Run g1.html file using firefox.
+2. The game is about arranging the words in a wrigtht way to form a correct sentence. 
+3. In each level after submitting the wright answer,we will get the next question.

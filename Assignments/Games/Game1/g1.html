@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    input[type=submit] {
+    width: 100px;  height: 30px;
+}
+    input[type=text] {
+    width: 30em;  height: 2em;
+}
+</style>
+ <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body bgcolor="#E6E6FA">
+<div id="elements" align="center"> 
+<button id="1" style="height:35px;width:130px;">Easy</button>
+<button id="2" style="height:35px;width:130px;">Medium</button>
+<button id="3" style="height:35px;width:130px;">Hard</button>
+</div>
+<div class="trail" id="test" style="visibility:hidden;"> </div>
+<div align="center">
+<font id="test1" size="5"></font>
+</div> 
+<form action="#" id="f" style="text-align: center">
+</form>
+<script>
+var level;
+$(document).ready(function() {
+ var array=[1,2,3];
+  for(var s=1;s<4;s++){
+    var a="#"+s;
+    $(a).click(function() {
+     $("#test").empty();
+     $("#test1").empty();
+     $("#f").empty();
+     level= $(this).text();   
+
+$.get('x1.xml',function(d){
+d=new Make_sentence(d,function(){
+});
+});
+});
+}
+});
+Array.prototype.shuffle = function() {
+var i = this.length;
+if (i == 0) return this;
+while (--i) {
+var j = Math.floor(Math.random() * (i + 1 ));
+var a = this[i];
+var b = this[j];
+this[i] = b;
+this[j] = a;
+}
+return this;
+};
+function Make_sentence(xmlfile,callBack, argsForCallback){
+ this.onload = callBack;
+ this.argsForCallback = argsForCallback;
+$.get('x1.xml',function(response){
+this.xmlDoc=$(response);
+var MakesentenceNode=this.xmlDoc.find('make_sentences').first();
+var LanguagesNode=MakesentenceNode.find('languages').children();
+this.lang = new Array();
+LanguagesNode.each(function(make_sentences){
+make_sentences.lang.push( new languages( $(this),make_sentences) ); 
+},[this]);
+});
+}
+var i;
+function languages(languageNode, parentElement)
+{
+i=0;
+this.parent = parentElement;
+this.title = languageNode.find('title').text().trim();
+var LevelNode=languageNode.find(level);
+var sentenceNode=LevelNode.find('sentences').children();
+this.sent = new Array();
+sentenceNode.each(function(language){
+language.sent.push(new levels( $(this),language));
+},[this]);
+print.call(this,sentenceNode,this.sent);
+}
+function print(arr)
+{
+var str=arr[i];
+document.getElementById('test').appendChild(str);
+var se =$("div.trail").text();
+var st = se.split(' ').shuffle().join(' ');
+$('#test1').append(st);
+var w="<input type="+"text"+" "+"id=myInput"+">";
+var s="<input type="+"submit"+" "+"id=submit"+" "+"value=Submit"+">";
+$('#f').append(w);
+$('#f').append(s);
+$('#submit').click(function() {
+var answer = $('#myInput').val();
+if(answer==se){
+alert("Correct");
+$("#test").empty();
+$("#test1").empty();
+$("#f").empty();
+i=i+1;
+print(arr);
+}
+else
+{
+alert("wrong");
+$("#test").empty();
+$("#test1").empty();
+$("#f").empty();
+print(arr);
+} 
+});
+}
+function levels(levelNode, parent1Element)
+{
+ this.parent = parent1Element;
+ this.text = levelNode.find('text').text().trim();
+}
+</script>
+</body>
+</html>
